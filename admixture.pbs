@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -N admixture_noMAF
+#PBS -q qcABI
+#PBS -j oe
+#PBS -m abe
+#PBS -M plm02@uark.edu
+#PBS -o admix_run1.out
+#PBS -l nodes=1:ppn=48
+#PBS -l walltime=72:00:00
+#PBS -V
+
+module load parallel
+
+PATH=$PATH:/home/mrd1/acamel/local/bin:/share/apps/bioinformatics/vcftools/bin
+export PATH 
+
+cd /storaged/mrd1/plm002/analysis/admixture
+
+./admixturePipeline/admixturePipeline.py -m run1.popmap -v run1.vcf -n 48 -k 1 -K 10 -t 100 -R 20 
+

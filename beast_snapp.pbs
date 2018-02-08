@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#PBS -N c50_i10_ch%
+#PBS -q q72h32c
+#PBS -j oe
+#PBS -o snapp_c50_i10_chain%.out
+#PBS -m abe
+#PBS -M tkchafin@uark.edu
+#PBS -l nodes=1:ppn=6
+#PBS -l walltime=3:00:00:00
+
+PATH=$PATH:/home/mrd1/acamel/local/bin
+
+module purge
+module load gcc java 
+
+DIR=/storaged/tkchafin/gila/gila_snapp
+WRK=$DIR/c50_i10
+XML=$DIR/snapp_c50_i10_r1000.xml
+
+cd $WRK
+ 
+beast -threads 6 -resume -seed 2223%222 -prefix chain% $XML
+
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -N raxml_hyd               #JOB NAME
+#PBS -q q30m32c                 #QUEUE NAME
+#PBS -j oe                      #"-j oe" means to join error and output in outfile
+#PBS -o raxml_hyd.out           #NAME OF OUTFILE
+#PBS -m abe                     #"-m abe" means send email when job: Aborts, Begins, and Ends
+#PBS -M tkchafin@email.uark.edu #email address
+#PBS -l nodes=1:ppn=32          #Number nodes; processes per node
+#PBS -l walltime=30:00          #Walltime
+
+#Bash code, etc here
